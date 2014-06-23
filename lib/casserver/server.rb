@@ -755,7 +755,10 @@ module CASServer
         builder.tag! key, value.to_s
       else
         builder.tag! key do
-          builder.cdata! value.to_yaml
+	  # will not work with phpCAS
+          #builder.cdata! value.to_yaml
+	  # instead:
+          builder.cdata! value.first.to_s
         end
       end
     end
